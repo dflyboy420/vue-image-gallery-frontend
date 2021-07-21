@@ -31,7 +31,7 @@ export default new Vuex.Store({
     },
     formData(state) {
       const fd = new FormData();
-      _.each(state.images.files, (f) => fd.append("img", f));
+      _.forEach(state.images.files, (f) => fd.append("img", f));
       return fd;
     },
   },
