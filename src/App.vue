@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Gallery</span>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <upload />
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// @ is an alias to /src
+import Upload from "@/components/Upload.vue";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
-    HelloWorld,
+    Upload,
   },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+<style lang="scss" scoped>
+main.home {
+  // background-image: url("/img/home_bg.png");
+  // background-size: cover;
 }
 </style>
