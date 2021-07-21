@@ -2,7 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import store from "./store";
 
-import './scss/main.scss';
+import "./scss/main.scss";
+import "cropperjs/dist/cropper.css";
 
 Vue.config.productionTip = false;
 

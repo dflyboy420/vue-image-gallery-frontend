@@ -6,7 +6,7 @@
       </div>
     </nav>
     <main>
-      <div class="container">
+      <div class="container mt-3">
         <div class="row">
           <div class="col">
             <upload />
@@ -28,7 +28,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 main.home {

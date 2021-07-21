@@ -4,8 +4,18 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    images: {
+      uris: [],
+      files: [],
+    },
+  },
+  mutations: {
+    addImage(state, img) {
+      state.images.uris.push(img.uri);
+      state.images.files.push(img.file);
+    },
+  },
   actions: {},
   modules: {},
 });
