@@ -10,20 +10,22 @@
     <input ref="fileInput" type="file" @change="upload" hidden />
 
     <div
-      id="carouselExampleControls"
+      ref="carousel"
       class="carousel slide"
       data-bs-ride="carousel"
-      v-if="imgs && imgs.length > 0"
+      v-if="imgNum > 0"
     >
       <div class="carousel-inner">
-        <div class="carousel-item" v-for="(u, i) of imgs" :key="i">
+        <div class="carousel-item" ref="slide" v-for="(u, i) of imgs" :key="i">
           <img :src="u" class="d-block w-100" />
+          <!-- TODO #2 show first slide -->
         </div>
       </div>
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleControls"
+        v-if="imgNum > 0"
+        :data-bs-target="carouselRef"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,7 +34,8 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleControls"
+        v-if="imgNum > 0"
+        :data-bs-target="carouselRef"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -93,6 +96,7 @@ export default {
       img: "",
       file: null,
       modal: null,
+      carousel: null,
       cropper: Cropper.prototype,
     };
   },
@@ -146,10 +150,23 @@ export default {
       this.file = file;
     },
   },
+  watch: {
+    imgNum: function (value) {
+      if (value === 1) {
+        this.$nextTick(() => this.$refs.slide[0].classList.add("active"));
+      }
+      console.log(value, this.$refs);
+    },
+  },
   computed: {
     ...mapState({
       imgs: (state) => state.images.uris,
+      imgNum: (state) => state.images.uris.length,
     }),
+    carouselRef() {
+      if(!this.$refs.carousel) return "";
+      return "[" + this.$refs.carousel.attributes[0].localName + "]";
+    }
   },
   beforeDestroy() {
     this.modal.dispose();

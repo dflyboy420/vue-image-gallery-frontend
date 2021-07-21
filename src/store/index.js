@@ -18,4 +18,9 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
+  getters: {
+    imgNum(state) {
+      return state.images.uris.length;
+    },
+  },
 });
