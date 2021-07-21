@@ -189,7 +189,7 @@ export default {
     async submit() {
       const fd = this.$store.getters.formData;
       console.log(fd.getAll("img"));
-      await axios.post("localhost:8088/upload", fd);
+      await axios.post("//localhost:8088/upload", fd);
       this.$store.commit("clear");
     }
   },
