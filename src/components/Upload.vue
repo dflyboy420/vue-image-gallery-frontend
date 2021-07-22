@@ -46,8 +46,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        v-if="imgNum > 0"
-        :data-bs-target="carouselRef"
+        data-bs-target=".upload .carousel"
         data-bs-slide="prev"
       >
         <span
@@ -59,8 +58,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        v-if="imgNum > 0"
-        :data-bs-target="carouselRef"
+        data-bs-target=".upload .carousel"
         data-bs-slide="next"
       >
         <span
@@ -207,7 +205,7 @@ export default {
     }),
     carouselRef() {
       if (!this.$refs.carousel) return "";
-      return "[" + this.$refs.carousel.attributes[0].localName + "]";
+      return "[" + this.$refs.carousel.getAttributeNames()[0] + "]";
     },
   },
   beforeDestroy() {

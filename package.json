@@ -14,11 +14,13 @@
     "core-js": "^3.6.5",
     "cropperjs": "^1.5.12",
     "lodash": "^4.17.21",
+    "srcset": "^4.0.0",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.0.17",
+    "@types/lodash": "^4.14.171",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",

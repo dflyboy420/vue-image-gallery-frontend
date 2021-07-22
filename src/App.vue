@@ -11,6 +11,10 @@
           <div class="col">
             <upload />
           </div>
+
+          <div class="col-12 mt-3">
+            <Pic fileName="76B757B0-1186-4ADF-9796-663C048EF366.JPG" />
+          </div>
         </div>
       </div>
     </main>
@@ -20,11 +24,12 @@
 <script>
 // @ is an alias to /src
 import Upload from "@/components/Upload.vue";
+import Pic from "@/components/Pic.vue";
 
 export default {
   name: "app",
   components: {
-    Upload,
+    Upload, Pic
   },
 };
 </script>
