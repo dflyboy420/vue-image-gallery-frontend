@@ -21,7 +21,7 @@ export default new Vuex.Store({
         uris: [],
         files: [],
       };
-    }
+    },
   },
   actions: {},
   modules: {},

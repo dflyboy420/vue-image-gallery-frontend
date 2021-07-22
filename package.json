@@ -2,6 +2,10 @@
   "name": "vue-image-gallery-frontend",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Daniel Poles",
+    "email": "daniel@dpulm.online"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -16,6 +20,7 @@
     "lodash": "^4.17.21",
     "srcset": "^4.0.0",
     "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -23,6 +28,7 @@
     "@types/lodash": "^4.14.171",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.13",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-prettier": "^6.0.0",
@@ -34,10 +40,6 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "author": {
-    "name": "Daniel Poles",
-    "email": "daniel@dpulm.online"
   },
   "license": "GPL-3.0",
   "repository": {

@@ -8,20 +8,11 @@
       >
         Bild hinzufuegen
       </button>
-      <button
-        @click.capture="submit()"
-        class="btn btn-primary"
-        type="button"
-      >
+      <button @click.capture="submit()" class="btn btn-primary" type="button">
         Send
       </button>
     </div>
-    <input
-      ref="fileInput"
-      type="file"
-      @change.stop="upload"
-      hidden
-    />
+    <input ref="fileInput" type="file" @change.stop="upload" hidden />
 
     <div
       ref="carousel"
@@ -30,16 +21,8 @@
       v-if="imgNum > 0"
     >
       <div class="carousel-inner">
-        <div
-          class="carousel-item"
-          ref="slide"
-          v-for="(u, i) of imgs"
-          :key="i"
-        >
-          <img
-            :src="u"
-            class="d-block w-100"
-          />
+        <div class="carousel-item" ref="slide" v-for="(u, i) of imgs" :key="i">
+          <img :src="u" class="d-block w-100" />
           <!-- TODO #2 show first slide -->
         </div>
       </div>
@@ -49,10 +32,7 @@
         data-bs-target=".upload .carousel"
         data-bs-slide="prev"
       >
-        <span
-          class="carousel-control-prev-icon"
-          aria-hidden="true"
-        ></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button
@@ -61,19 +41,12 @@
         data-bs-target=".upload .carousel"
         data-bs-slide="next"
       >
-        <span
-          class="carousel-control-next-icon"
-          aria-hidden="true"
-        ></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
 
-    <div
-      class="modal"
-      ref="modal"
-      tabindex="-1"
-    >
+    <div class="modal" ref="modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -88,11 +61,7 @@
           <div class="modal-body">
             <div class="row mw-100">
               <div class="col">
-                <img
-                  class="img-fluid"
-                  ref="image"
-                  alt="Cropped Image"
-                />
+                <img class="img-fluid" ref="image" alt="Cropped Image" />
               </div>
             </div>
           </div>
@@ -189,7 +158,7 @@ export default {
       console.log(fd.getAll("img"));
       await axios.post("//localhost:8088/upload", fd);
       this.$store.commit("clear");
-    }
+    },
   },
   watch: {
     imgNum: function (value) {

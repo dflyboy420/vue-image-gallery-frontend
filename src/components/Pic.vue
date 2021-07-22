@@ -6,7 +6,7 @@
       :srcset="srcset"
       :type="type"
     />
-    <img :srcset="fallback" alt="" />
+    <img :src="fallback" alt="" />
   </picture>
 </template>
 
@@ -17,7 +17,7 @@ import * as srcset from "srcset";
 
 export default {
   name: "Pic",
-  props: ["fileName"],
+  props: ["name"],
   data() {
     return {
       sources: {},
@@ -29,12 +29,10 @@ export default {
   },
   methods: {
     async loadSrc() {
-      const { data } = await axios.get(
-        "//localhost:8088/list/" + this.fileName
-      );
+      const { data } = await axios.get("//localhost:8088/list/" + this.name);
       for (let t of data) {
         let parsed = [];
-        
+
         for (let e of _.orderBy(t.sizes, "width", "asc")) {
           parsed.push({
             url: "http://localhost:8088/img/" + e.id,
@@ -44,7 +42,7 @@ export default {
         const stringified = srcset.stringify(parsed);
         console.log(stringified);
         _.set(this.sources, t.type, stringified);
-        if (t.type === "image/jpeg") this.fallback = stringified;
+        if (t.type === "image/jpeg") this.fallback = _.last(parsed).url;
       }
     },
   },

@@ -9,11 +9,7 @@
       <div class="container mt-3">
         <div class="row">
           <div class="col">
-            <upload />
-          </div>
-
-          <div class="col-12 mt-3">
-            <Pic fileName="76B757B0-1186-4ADF-9796-663C048EF366.JPG" />
+            <router-view />
           </div>
         </div>
       </div>
@@ -21,22 +17,25 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import Upload from "@/components/Upload.vue";
-import Pic from "@/components/Pic.vue";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  name: "app",
-  components: {
-    Upload, Pic
-  },
-};
-</script>
+#nav {
+  padding: 30px;
 
-<style lang="scss" scoped>
-main.home {
-  // background-image: url("/img/home_bg.png");
-  // background-size: cover;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
